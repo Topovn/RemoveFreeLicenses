@@ -22,4 +22,4 @@ python main.py
 and look at the log for further instruction
 
 ## Disclaimer
-I take no responsibility, it works on my machine (sometimes it breaks just restart)
+I take no responsibility, it works on my machine
