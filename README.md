@@ -1,6 +1,7 @@
 # Steam Free License Remover
 
 Quick script I wrote that uses OCR to remove free licenses from Steam library
+
 Yes I know you used [SteamDB Freepackages](https://steamdb.info/freepackages/https://steamdb.info/freepackages/)
 
 Press ESC key to exit while script is running
@@ -16,8 +17,8 @@ Press ESC key to exit while script is running
 pip install pyautogui pytesseract keyboard opencv-python numpy
 ```
 
-4. Run the script via 
-```bash
+4. Run the script 
+```python
 python main.py
 ```
 and look at the log for further instruction
