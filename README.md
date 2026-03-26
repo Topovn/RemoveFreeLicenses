@@ -1,4 +1,4 @@
-# Steam Free License Remover
+# Steam Free Licenses Remover
 
 Quick script I wrote that uses OCR to remove free licenses from Steam library
 

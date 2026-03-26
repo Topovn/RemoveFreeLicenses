@@ -1,15 +1,11 @@
 import pyautogui
-import pytesseract
 import time
 import keyboard
 import os
 
 keyboard.add_hotkey('esc', lambda: os._exit(0))
 
-# Default Tesseract installation location
-pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
-
-def wait_and_act(imagePath, timeout=3.0, action='click',conf=0.8):
+def wait_and_act(imagePath, timeout=3.0, action='click',conf=0.9):
     start_time = time.time()
     
     while time.time() - start_time < timeout:
@@ -36,7 +32,7 @@ def main():
     #print(f"Initial position locked at: {initPoint}")
 
     # Change this if you want
-    totalLoop = 100
+    totalLoop = 200
 
     scrollDown = 0
     hideGame = 0
@@ -47,9 +43,12 @@ def main():
         time.sleep(0.2)
         
         if not wait_and_act('img/manage.png', action='hover'):
-            print("Failed to find 'Manage'")
+            # print("Failed to find 'Manage'")
             scrollDown += 1
             if scrollDown >= 2:
+                if scrollDown >= 10:
+                    print("Something went wrong, maybe SteamWebService isnt responding. Stopping the script")
+                    break
                 pyautogui.scroll(-30)
                 scrollDown = 0
             pyautogui.press('esc')
@@ -57,10 +56,10 @@ def main():
             continue
     
         if not wait_and_act('img/remove.png', action='click'):
-            print("Failed to find 'Remove from account'")
+            # print("Failed to find 'Remove from account'")
             hideGame += 1
             if hideGame >= 2:
-                print("Could not remove game, now hiding from view")
+                # print("Could not remove game, now hiding from view")
                 if wait_and_act('img/hide.png', action='click'):
                     hideGame = 0
                     time.sleep(1)
@@ -72,13 +71,10 @@ def main():
         hideGame = 0
         
         if not wait_and_act('img/confirm.png', action="click"):
-             print("Failed to find 'Remove'")
+            #  print("Failed to find 'Remove'")
              pyautogui.press('esc')
              time.sleep(1)
         
-        # pyautogui.move(500,110)
-        # pyautogui.click()
-        # pyautogui.moveTo(initPoint)
         time.sleep(2)
 
     print("Task complete.")
