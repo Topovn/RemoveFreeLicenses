@@ -21,5 +21,10 @@ python main.py
 ```
 and look at the log for further instruction
 
+## Showcase
+
+https://github.com/user-attachments/assets/ec3b052f-ba82-47c3-b04f-94b40446fddb
+
+
 ## Disclaimer
 I take no responsibility, it works on my machine
