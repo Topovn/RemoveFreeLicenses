@@ -10,9 +10,14 @@ also, press ESC key to exit while the script is running
 
 1. Create a dynamic collection with "Free to Play" store tag. View said collection in Grid view
 
-2. Install the libraries via pip:
+2. Set up environment
 ```bash
-pip install pyautogui pytesseract keyboard opencv-python numpy
+git clone
+cd
+python -m venv venv
+venv\Scripts\activate    #Windows
+source venv/bin/activate #Mac/Linux
+pip install pyautogui keyboard
 ```
 
 3. Modify totalLoop if you want and run the script 
