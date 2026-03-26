@@ -16,8 +16,8 @@ Press ESC key to exit while script is running
 pip install pyautogui pytesseract keyboard opencv-python numpy
 ```
 
-4. Run the script via 
-```bash
+4. Run the script 
+```python
 python main.py
 ```
 and look at the log for further instruction
