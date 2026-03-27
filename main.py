@@ -2,11 +2,9 @@ import pyautogui
 import time
 import keyboard
 import os
-from datetime import timedelta
 
 # Change this if u want the script to run shorter/longer
 totalLoop = 500
-
 
 # --------------------------------
 
