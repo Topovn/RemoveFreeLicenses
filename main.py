@@ -2,13 +2,31 @@ import pyautogui
 import time
 import keyboard
 import os
+from datetime import timedelta
 
-keyboard.add_hotkey('esc', lambda: os._exit(0))
+# Change this if u want the script to run shorter/longer
+totalLoop = 500
+
+
+# --------------------------------
+
+startTime = time.time()
+
+def stopScript():
+    elapsed = time.time() - startTime
+    mins = elapsed // 60
+    secs = round(elapsed % 60, 1)
+    print("Stopped by user")
+    print(f"Ran for {mins} minutes {secs} seconds")
+    os._exit(0)
+
+
+keyboard.add_hotkey('esc', stopScript)
 
 def wait_and_act(imagePath, timeout=3.0, action='click',conf=0.9):
-    start_time = time.time()
+    startTimeLoop = time.time()
     
-    while time.time() - start_time < timeout:
+    while time.time() - startTimeLoop < timeout:
         try:
             location = pyautogui.locateCenterOnScreen(imagePath, confidence=conf)
             
@@ -25,19 +43,14 @@ def wait_and_act(imagePath, timeout=3.0, action='click',conf=0.9):
     return False
 
 def main():
-    print("Waiting 5 seconds, hover over a steam game in grid view to begin")
+    print("Waiting for 5 seconds, hover over a steam game in grid view to begin")
     time.sleep(5)
-    
+
     initPoint = pyautogui.position()
-    #print(f"Initial position locked at: {initPoint}")
-
-    # Change this if you want
-    totalLoop = 200
-
     scrollDown = 0
     hideGame = 0
+
     for _ in range(totalLoop):
-        #print(f"Cycle {_+1}/{totalLoop}")
         pyautogui.moveTo(initPoint)
         pyautogui.rightClick()
         time.sleep(0.2)
@@ -46,7 +59,7 @@ def main():
             # print("Failed to find 'Manage'")
             scrollDown += 1
             if scrollDown >= 2:
-                if scrollDown >= 10:
+                if scrollDown >= 8:
                     print("Something went wrong, maybe SteamWebService isnt responding. Stopping the script")
                     break
                 pyautogui.scroll(-30)
@@ -77,7 +90,12 @@ def main():
         
         time.sleep(2)
 
+    elapsed = time.time() - startTime
+    mins = elapsed // 60
+    secs = round(elapsed % 60, 1)
     print("Task complete.")
+    print(f"Ran for {mins} minutes {secs} seconds")
+
 
 if __name__ == "__main__":
     main()
