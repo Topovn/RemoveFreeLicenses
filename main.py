@@ -10,14 +10,16 @@ totalLoop = 500
 
 startTime = time.time()
 
-def stopScript():
+def printElapsedTime(message: str = "Task complete"):
     elapsed = time.time() - startTime
-    mins = elapsed // 60
-    secs = round(elapsed % 60, 1)
-    print("Stopped by user")
+    mins = int(elapsed // 60)
+    secs = int(round(elapsed % 60))
+    print(message)
     print(f"Ran for {mins} minutes {secs} seconds")
+    
+def stopScript():
+    printElapsedTime("Stopped by user")
     os._exit(0)
-
 
 keyboard.add_hotkey('esc', stopScript)
 
@@ -88,11 +90,7 @@ def main():
         
         time.sleep(2)
 
-    elapsed = time.time() - startTime
-    mins = elapsed // 60
-    secs = round(elapsed % 60, 1)
-    print("Task complete.")
-    print(f"Ran for {mins} minutes {secs} seconds")
+    printElapsedTime()
 
 
 if __name__ == "__main__":
