@@ -15,21 +15,22 @@ also, press ESC key to exit while the script is running
 git clone
 cd
 python -m venv venv
-venv\Scripts\activate    #Windows
-source venv/bin/activate #Mac/Linux
-pip install pyautogui keyboard
+venv\Scripts\activate    # Windows
+source venv/bin/activate # Mac/Linux
+pip install pyautogui keyboard opencv-python
 ```
 
 3. Modify totalLoop if you want and run the script 
 ```python
-python main.py
+python main.py  # For Windows
+or
+python mac.py   # For Mac
 ```
 and look at the log for further instruction
 
 ## Showcase
 
 https://github.com/user-attachments/assets/ec3b052f-ba82-47c3-b04f-94b40446fddb
-
 
 ## Disclaimer
 I take no responsibility, it works on my machine
