@@ -59,7 +59,7 @@ def main():
             # print("Failed to find 'Manage'")
             scrollDown += 1
             if scrollDown >= 2:
-                if scrollDown >= 8:
+                if scrollDown >= 5:
                     print("Something went wrong, maybe SteamWebService isnt responding. Stopping the script")
                     break
                 pyautogui.scroll(-30)
