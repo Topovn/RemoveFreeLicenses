@@ -88,7 +88,7 @@ def main():
              pyautogui.press('esc')
              time.sleep(1)
         
-        time.sleep(2)
+        time.sleep(1)
 
     printElapsedTime()
 
